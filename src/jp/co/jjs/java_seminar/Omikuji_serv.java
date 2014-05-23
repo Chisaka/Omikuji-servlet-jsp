@@ -30,7 +30,21 @@ public class Omikuji_serv extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
+        getpost(request, response);
+    }
 
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     *      response)
+     */
+    protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        getpost(request, response);
+
+    }
+
+    public void getpost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
         int rand = (int)Math.floor(Math.random() * 5 + 1);
         String str = "";
 
@@ -57,15 +71,6 @@ public class Omikuji_serv extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("Omikuji_reserv.jsp");
         dispatcher.forward(request, response);
-    }
-
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-     *      response)
-     */
-    protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
     }
 
 }
